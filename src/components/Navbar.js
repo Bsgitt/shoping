@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { FaSpeakap } from "react-icons/fa";
 
-
 const Navbar = () => {
   return (
     <>
@@ -15,9 +14,9 @@ const Navbar = () => {
         </Link>
   </div>
   <div className='flex mr-10'>
-    <Link to="/cart" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Cart</Link>
-    <Link to="/profile" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Profile</Link>
-    <Link to="/Payment" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Payment</Link>
+    <Link to="/cart" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Cart(0)</Link>
+    <Link to="/about" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">About</Link>
+    <Link to="/products" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Products</Link>
   </div>
 </nav>
 
