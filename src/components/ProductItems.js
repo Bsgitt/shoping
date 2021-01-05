@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 const ProductItems = ({ product }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
   const addInCart = (product) => {
-    return cartItems.find((item) => console.log('add Items',item.id === product.id));
+    return !!cartItems.find((item) => item.id === product.id);
   };
   return (
     <>
