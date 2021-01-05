@@ -7,7 +7,7 @@ const Cart = () => {
   console.log("cartItems", cartItems);
   return (
     <>
-      <div className='container mx-auto'>
+      <div className='xl:container mx-auto md: container max-w-sm'>
           {cartItems.map((product)=> <CartItems key={product.id} product={product}/>)}
       </div>
     </>

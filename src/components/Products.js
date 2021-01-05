@@ -10,7 +10,7 @@ const Products = () => {
     <>
     {!isLoading && data.length ===0 && <h1 className='text-6xl text-center mx-auto mt-32'>Loading...</h1>}
     {isLoading ?(<h1 className='text-6xl text-center mx-auto mt-32'>NO Products</h1>):(
-      <div className='grid grid-cols-4 gap-6'>
+      <div className='xl:grid grid-cols-3 sm:grid gap-0 md: grid-rows-2 '>
         {data.map((product) =>(
         <ProductItems key={product.id} product={product}/>
       ))}

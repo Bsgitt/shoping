@@ -5,18 +5,18 @@ import { formatNumber } from "../../helpers/utils";
 
 const CartItem = ({ product }) => {
   const { increase, decrease, removeProduct } = useContext(CartContext);
-  console.log(increase, "increase");
+
   return (
-    <div className="flex justify-between rounded-md bg-white shadow-lg px-1 py-2 mb-1 mt-2">
-      <div className="col-sm-2 p-2">
+    <div className="flex justify-between rounded-md bg-white shadow-lg px-1 py-2 mb-1 mt-2 md:justify-center md:text-sm sm:text-sm">
+      <div className="sm:text-sm flex-col gap-0 lg:flex-col flex-1">
         <img
           alt={product.name}
-          style={{ margin: "0 auto", maxHeight: "50px" }}
+         
           src={product.image}
-          className="img-fluid d-block"
+          className="w-10 block lg:relative max-w-sm md:flex-1 "
         />
       </div>
-      <div className="col-sm-4 p-2">
+      <div className=" relative col-sm-4 p-2 md:grid-cols-1">
         <h5 className="mb-1">{product.name}</h5>
         <p className="mb-1">Price: {formatNumber(product.price)} </p>
       </div>
@@ -26,7 +26,7 @@ const CartItem = ({ product }) => {
       <div className="col-sm-4 p-2 text-right">
         <button
           onClick={() => increase(product)}
-          className="bg-red-500 hover:bg-red-300 text-sm px-3 py-4 rounded ml-1"
+          className="bg-red-500 hover:bg-red-300 text-sm px-3 py-4 rounded ml-1 md:flex-col"
         >
           +
         </button>
@@ -40,7 +40,7 @@ const CartItem = ({ product }) => {
           </button>
         )}
 
-        {product.quantity === 1 && (
+        {product.quantity <= 1 && (
           <button
             onClick={() => removeProduct(product)}
             className="bg-gray-100 rounded ml-1 hover:bg-white text-sm px-3 py-4"
