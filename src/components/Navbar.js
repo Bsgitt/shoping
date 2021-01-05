@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import { FaSpeakap } from "react-icons/fa";
+import { CartContext } from '../context/CartContext';
 
 const Navbar = () => {
+  const { itemCount } = useContext(CartContext);
   return (
     <>
    
@@ -14,7 +16,7 @@ const Navbar = () => {
         </Link>
   </div>
   <div className='flex mr-10'>
-    <Link to="/cart" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Cart(0)</Link>
+    <Link to="/cart" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Cart({itemCount})</Link>
     <Link to="/about" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">About</Link>
     <Link to="/products" className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">Products</Link>
   </div>
