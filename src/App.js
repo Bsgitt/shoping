@@ -12,6 +12,7 @@ import Cart from './components/cartItems/index'
 import Home from "./pages/Home";
 import Dropdown from "./components/Dropdown";
 import Footer from "./pages/Footer";
+import NotFound from "./pages/NotFound";
 function App() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle =()=>{
@@ -30,14 +31,15 @@ function App() {
   return (
     <Router>
       <Navbar toggle={toggle} />
-      <Dropdown isOpen={isOpen} toggle={toggle}/>
+      <Dropdown isOpen={isOpen} toggle={toggle} />
       <Switch>
-        <Route path='/' exact component={Home}/>
-      <Route path='/about' component={About}/>
-      <Route path='/store' component={Products}/>
-      <Route path='/cart' component={Cart}/>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/store" component={Products} />
+        <Route path="/cart" component={Cart} />
+        <Route path="*" exact={true} component={NotFound} />
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }

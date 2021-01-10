@@ -13,7 +13,7 @@ const Cart = () => {
   } = useContext(CartContext);
   return (
     <>
-      <div className="xl:flex-row md:flex justify-around">
+      <div className=" h-screen xl:flex-row md:flex justify-around">
         <div className="text-2xl mt-5 text-center ">
           {" "}
           Cart
