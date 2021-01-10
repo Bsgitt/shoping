@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import {
@@ -8,17 +8,36 @@ import {
 } from "react-router-dom";
 import About from './pages/About'
 //import         
-import Cart from './pages/cartItems/index' 
+import Cart from './components/cartItems/index' 
+import Home from "./pages/Home";
+import Dropdown from "./components/Dropdown";
+import Footer from "./pages/Footer";
 function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle =()=>{
+        setIsOpen(!isOpen)
+    }
+    useEffect(() => {
+      const hideMenuSize=()=>{
+        if(window.innerWidth <500 && isOpen){
+          setIsOpen(false)
+          console.log("i resized",hideMenuSize);
+        }
+        window.addEventListener('resize',hideMenuSize)
+      }
+      return ()=> window.removeEventListener('resize',hideMenuSize)
+    });
   return (
     <Router>
-      <Navbar />
+      <Navbar toggle={toggle} />
+      <Dropdown isOpen={isOpen} toggle={toggle}/>
       <Switch>
+        <Route path='/' exact component={Home}/>
       <Route path='/about' component={About}/>
-      <Route path='/products' component={Products}/>
+      <Route path='/store' component={Products}/>
       <Route path='/cart' component={Cart}/>
       </Switch>
-    
+      <Footer/>
     </Router>
   );
 }

@@ -5,12 +5,17 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    screens: {
-      sm: { min: "640px", max: "767px" },
-      md: { min: "768px", max: "1023px" },
-      lg: { min: "1024px", max: "1279px" },
-      xl: { min: "1280px", max: "1535px" },
-      "2xl": { min: "1536px" },
+   screens: {
+      'sm': '500px',
+      'md': [
+        // Sidebar appears at 768px, so revert to `sm:` styles between 768px
+        // and 868px, after which the main content area is wide enough again to
+        // apply the `md:` styles.
+        {'min': '668px', 'max': '767px'},
+        {'min': '868px'}
+      ],
+      'lg': '1100px',
+      'xl': '1400px',
     },
     colors: {
       transparent: "transparent",
